@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Client</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Drone Client</h1>
+    <form id="droneForm">
+        <div class="mb-3">
+            <label for="modelInput" class="form-label">Model:</label>
+            <input type="text" class="form-control" id="modelInput" required>
+        </div>
+        <div class="mb-3">
+            <label for="statusInput" class="form-label">Status:</label>
+            <input type="text" class="form-control" id="statusInput" required>
+        </div>
+        <div class="mb-3">
+            <label for="batteryLevelInput" class="form-label">Battery Level:</label>
+            <input type="number" class="form-control" id="batteryLevelInput" required>
+        </div>
+        <div class="mb-3">
+            <label for="speedInput" class="form-label">Speed:</label>
+            <input type="number" class="form-control" id="speedInput" required>
+        </div>
+        <div class="mb-3">
+            <label for="payloadCapacityInput" class="form-label">Payload Capacity:</label>
+            <input type="number" step="0.1" class="form-control" id="payloadCapacityInput" required>
+        </div>
+        <div class="mb-3">
+            <label for="latitudeInput" class="form-label">Latitude:</label>
+            <input type="number" step="0.000001" class="form-control" id="latitudeInput" required>
+        </div>
+        <div class="mb-3">
+            <label for="longitudeInput" class="form-label">Longitude:</label>
+            <input type="number" step="0.000001" class="form-control" id="longitudeInput" required>
+        </div>
+        <div class="mb-3">
+            <label for="isAssignedInput" class="form-label">Is Assigned:</label>
+            <input type="checkbox" class="form-check-input" id="isAssignedInput">
+        </div>
+        <button type="submit" class="btn btn-primary">Create Drone</button>
+    </form>
+    <hr>
+    <h2>Drone List</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Status</th>
+            <th>Battery Level</th>
+            <th>Speed</th>
+            <th>Payload Capacity</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Is Assigned</th>
+        </tr>
+        </thead>
+        <tbody id="droneList"></tbody>
+    </table>
+</div>
+
+<script>
+    // Funkcja do wysyłania żądania POST tworzącego drona
+    function createDrone(event) {
+        event.preventDefault();
+
+        const drone = {
+            model: document.getElementById("modelInput").value,
+            status: document.getElementById("statusInput").value,
+            batteryLevel: parseInt(document.getElementById("batteryLevelInput").value),
+            speed: parseInt(document.getElementById("speedInput").value),
+            payloadCapacity: parseFloat(document.getElementById("payloadCapacityInput").value),
+            latitude: parseFloat(document.getElementById("latitudeInput").value),
+            longitude: parseFloat(document.getElementById("longitudeInput").value),
+            isAssigned: document.getElementById("isAssignedInput").checked
+        };
+
+        fetch("/drones", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(drone)
+        })
+            .then(response => response.json())
+            .then(createdDrone => {
+                console.log("Nowy dron został utworzony:");
+                console.log(createdDrone);
+                document.getElementById("droneForm").reset(); // Resetowanie formularza
+                fetchDroneList(); // Odświeżenie listy dronów
+            })
+            .catch(error => console.error("Wystąpił błąd podczas tworzenia drona:", error));
+    }
+
+    // Funkcja do pobierania listy dronów
+    function fetchDroneList() {
+        fetch("http://localhost:8080/drones")
+            .then(response => response.json())
+            .then(drones => {
+                const droneList = document.getElementById("droneList");
+                droneList.innerHTML = ""; // Wyczyszczenie tabeli przed aktualizacją
+
+                drones._embedded.drones.forEach(drone => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+              <td>${drone.id}</td>
+              <td>${drone.model}</td>
+              <td>${drone.status}</td>
+              <td>${drone.batteryLevel}</td>
+              <td>${drone.speed}</td>
+              <td>${drone.payloadCapacity}</td>
+              <td>${drone.latitude}</td>
+              <td>${drone.longitude}</td>
+              <td>${drone.isAssigned}</td>
+            `;
+                    droneList.appendChild(row);
+                });
+            })
+            .catch(error => console.error("Wystąpił błąd podczas pobierania dronów:", error));
+    }
+
+    // Obsługa zdarzenia submit formularza
+    document.getElementById("droneForm").addEventListener("submit", createDrone);
+
+    // Pobranie listy dronów po załadowaniu strony
+    fetchDroneList();
+</script>
+</body>
+</html>
