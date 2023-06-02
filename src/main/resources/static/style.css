@@ -1,111 +1,139 @@
 * {
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-    background-color: #00b7ff;
-    background-image: url("dron.jpg");
-    background-size: cover;
-    background-attachment: fixed;
+  background-color: #ffffff00;
+  background-image: url("dron.jpg");
+  background-size: cover;
+  background-attachment: fixed;
 }
 .jumbotron {
-    background-color: #343a40;
-    opacity: 50%;
-    color: #fff;
-    padding: 100px 0;
-    margin-bottom: 0;
-    margin-top: 200px;
-    margin-right: 500px;
-    margin-left: 500px;
+  color: rgb(255, 255, 255);
+  padding: 100px 0;
+  margin-bottom: 0;
+  margin-top: 6%;
+  margin-right: 300px;
+  margin-left: 300px;
+  height: 700px;
+  border-radius: 15px;
+  opacity: 0.95;
+}
+
+.jumbotron .display-4 {
+  align-items: center;
+  margin-top: 10%;
 }
 
 .jumbotron h1 {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 40px;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 40px;
 }
 
 .jumbotron p {
-    font-size: 24px;
-    margin-bottom: 40px;
+  font-size: 24px;
+  margin-bottom: 40px;
 }
 
 .btn-primary {
-    background-color: #007bffab;
-    border-color: #007bff;
+  background-color: #007bffab;
+  border-color: #007bff;
 }
 
 .btn-primary:hover {
-    background-color: #0069d9;
-    border-color: #0062cc;
+  background-color: #0069d9;
+  border-color: #0062cc;
 }
 
 #map {
-    height: 470px;
+  height: 470px;
 }
 
 #map2 {
-    height: 470px;
+  height: 470px;
+}
+
+.slajd1 .jumbotron {
+  background-color: #fff;
+  padding: 15px;
+  color: #343a40;
 }
 
 .slajd2 .jumbotron {
-    background-color: #fff;
-    padding: 15px;
-    margin-top: 100px;
-    opacity: 100%;
-    border-radius: 15px;
-    color: #343a40;
+  background-color: #fff;
+  padding: 15px;
+  color: #343a40;
 }
 
 .slajd2 h2 {
-    color: #343a40;
-    font-size: 52px;
-    margin-bottom: 35px;
-    margin-top: 15px;
+  color: #343a40;
+  font-size: 52px;
+  margin-bottom: 35px;
+  margin-top: 15px;
 }
 
 .slajd3 h2 {
-    color: #343a40;
-    font-size: 52px;
-    margin-bottom: 35px;
-    margin-top: 15px;
+  color: #343a40;
+  font-size: 52px;
+  margin-bottom: 35px;
+  margin-top: 15px;
 }
 
 .slajd3 .jumbotron {
-    background-color: #fff;
-    padding: 15px;
-    margin-top: 100px;
-    opacity: 100%;
-    border-radius: 15px;
-    color: #343a40;
+  background-color: #fff;
+  padding: 15px;
+  color: #343a40;
 }
 
 .slajd4 .jumbotron {
-    background-color: #fff;
-    padding: 15px;
-    margin-top: 200px;
-    opacity: 100%;
-    border-radius: 15px;
-    color: #343a40;
+  background-color: #fff;
+  padding: 15px;
+  color: #343a40;
 }
-
 .slajd4 h2 {
-    color: #343a40;
-    font-size: 52px;
-    margin-bottom: 35px;
-    margin-top: 15px;
+  color: #343a40;
+  font-size: 52px;
+  margin-bottom: 35px;
+  margin-top: 15px;
 }
 
 .slajd5 .jumbotron {
-    background-color: #fff;
-    padding: 15px;
-    margin-top: 100px;
-    opacity: 100%;
-    border-radius: 15px;
-    color: #343a40;
+  background-color: #fff;
+  padding: 15px;
+  color: #343a40;
 }
 
 .slajd5 p {
-    color: #343a40;
-    font-size: 13px;
+  color: #343a40;
+  font-size: 13px;
+  line-height: 2px;
+}
+
+.slajd5 .tekst {
+  text-align: left;
+}
+
+.vl {
+  border-left: 1px solid rgb(228, 228, 228);
+  height: 500px;
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+
+.slajd4 .przyciski4 {
+  position: absolute;
+  bottom: 1%;
+  left: 45%;
+}
+
+.slajd5 .przyciski5 {
+  position: absolute;
+  bottom: 1%;
+  left: 45%;
+}
+
+.form-group {
+  box-shadow: 4.3px 2.7px 8.6px rgba(0, 0, 0, 0.026), 14.5px 9.2px 29px rgba(0, 0, 0, 0.038), 65px 41px 130px rgba(0, 0, 0, 0.07);
 }
