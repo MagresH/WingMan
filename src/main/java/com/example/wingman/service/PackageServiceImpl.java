@@ -15,7 +15,7 @@ public class PackageServiceImpl implements PackageService {
     public Package createPackage(Package _package) {
 
         if (!validatePackage(_package)) {
-            throw new IllegalArgumentException("Nieprawidłowe dane paczki.");
+            throw new IllegalArgumentException("Invalid package details");
         }
 
         return packageRepository.save(_package);

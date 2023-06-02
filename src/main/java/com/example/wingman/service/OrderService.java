@@ -1,5 +1,6 @@
 package com.example.wingman.service;
 
+import com.example.wingman.model.Delivery;
 import com.example.wingman.model.Order;
 
 public interface OrderService {

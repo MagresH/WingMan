@@ -19,18 +19,15 @@ public class Delivery {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "delivery_date", nullable = false)
+    @Column(name = "delivery_date")
     private LocalDate deliveryDate;
 
     @Column(name = "status", nullable = false ,length = 50)
     private String status;
 
     @OneToOne
-    @JoinColumn(name = "drone_id", nullable = false)
+    @JoinColumn(name = "drone_id")
     private Drone drone;
 
-    @OneToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
 
 }
