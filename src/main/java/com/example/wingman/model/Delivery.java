@@ -19,8 +19,16 @@ public class Delivery {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "delivery_date")
-    private LocalDate deliveryDate;
+//    @Column(name = "delivery_date")
+//    private LocalDate deliveryDate;
+
+    //delivery days
+    @Column(name = "delivery_days")
+    private Integer deliveryDays;
+
+    //distance
+    @Column(name = "distance")
+    private Integer distance;
 
     @Column(name = "status", nullable = false ,length = 50)
     private String status;

@@ -13,6 +13,7 @@ import java.net.URISyntaxException;
 public class BrowserOpener {
 
     @EventListener(ApplicationReadyEvent.class)
+
     public void browse() throws IOException, URISyntaxException {
         String url = "http://localhost:8080/index.html";
 

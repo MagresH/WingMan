@@ -35,8 +35,8 @@ public class Package {
     @Column(name = "is_fragile", nullable = false)
     private boolean isFragile;
 
-    //order
-    @OneToOne(mappedBy = "_package")
-    private Order _order;
+//    //order
+//    @OneToOne(mappedBy = "_package")
+//    private Order _order;
 
 }

@@ -12,5 +12,4 @@ services:
       POSTGRES_PASSWORD: 'password'
       POSTGRES_DB: 'wingman'
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ./init.sql:/init.sql
+      - ./postgres-initdb:/docker-entrypoint-initdb.d

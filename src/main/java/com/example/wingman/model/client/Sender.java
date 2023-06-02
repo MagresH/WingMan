@@ -20,6 +20,6 @@ public class Sender extends Client{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     //order
-    @OneToMany(mappedBy = "sender")
-    private List<Order> orders;
+//    @OneToMany(mappedBy = "sender")
+//    private List<Order> orders;
 }

@@ -1,5 +1,6 @@
 package com.example.wingman.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Drone {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "model", nullable = false ,length = 50)
@@ -29,15 +30,22 @@ public class Drone {
     @Column(name = "speed", nullable = false)
     private Integer speed;
 
-    @Column(name = "payload_capacity", nullable = false)
+    @Column(name = "payload_capacity")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Float payloadCapacity;
 
-    @Column(name = "latitude", nullable = false)
+    @Column(name = "latitude")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Double latitude;
-
-    @Column(name = "longitude", nullable = false)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @Column(name = "longitude")
     private Double longitude;
 
-    @Column(name = "is_assigned", nullable = false)
+    @Column(name = "is_in_delivery")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private boolean isInDelivery;
+
+    @Column(name = "is_assigned")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private boolean isAssigned;
 }
