@@ -80,7 +80,7 @@
             isAssigned: document.getElementById("isAssignedInput").checked
         };
 
-        fetch("/drones", {
+        fetch("http://localhost:8080/drones", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

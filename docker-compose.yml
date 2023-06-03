@@ -11,5 +11,17 @@ services:
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'password'
       POSTGRES_DB: 'wingman'
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_CONFIG_SERVER_MODE: 'False' # Added to disable server mode
+    ports:
+      - "5050:80"
+    depends_on:
+    - db
     volumes:
       - ./postgres-initdb:/docker-entrypoint-initdb.d

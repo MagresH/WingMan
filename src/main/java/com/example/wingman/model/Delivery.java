@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -19,12 +20,11 @@ public class Delivery {
     @Column(name = "id", nullable = false)
     private Long id;
 
-//    @Column(name = "delivery_date")
-//    private LocalDate deliveryDate;
+    @Column(name = "delivery_date")
+    private LocalDateTime deliveryDateTime;
 
-    //delivery days
-    @Column(name = "delivery_days")
-    private Integer deliveryDays;
+    @Column(name = "delivery_hours")
+    private Integer deliveryHours;
 
     //distance
     @Column(name = "distance")

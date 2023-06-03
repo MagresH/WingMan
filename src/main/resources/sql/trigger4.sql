@@ -29,7 +29,7 @@ RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER assign_random_location_trigger
+CREATE OR REPLACE TRIGGER assign_random_location_trigger
     BEFORE INSERT ON drone
     FOR EACH ROW
     EXECUTE FUNCTION assign_random_location_to_drone();

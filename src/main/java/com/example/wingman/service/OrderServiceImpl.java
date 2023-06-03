@@ -36,12 +36,15 @@ public class OrderServiceImpl implements OrderService {
                 .status("In progress")
                 .build();
 
-        order.setDelivery(deliveryService.createDelivery(delivery));
+
+        Delivery savedDelivery = deliveryService.createDelivery(delivery);
+        order.setDelivery(savedDelivery);
 
         Order savedOrder = orderRepository.saveAndFlush(order);
 
         entityManager.refresh(savedOrder);
-
+        entityManager.refresh(savedOrder.getDelivery());
+        entityManager.refresh(savedDelivery);
         return savedOrder;
     }
 

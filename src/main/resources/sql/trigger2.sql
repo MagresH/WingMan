@@ -26,7 +26,7 @@ RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER assign_drone_to_delivery_trigger
+CREATE OR REPLACE TRIGGER assign_drone_to_delivery_trigger
     AFTER INSERT ON delivery
     FOR EACH ROW
     EXECUTE FUNCTION assign_drone_to_delivery();

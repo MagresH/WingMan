@@ -7,7 +7,7 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER set_order_time_trigger
+CREATE OR REPLACE TRIGGER set_order_time_trigger
     BEFORE INSERT ON public._order
     FOR EACH ROW
 EXECUTE FUNCTION set_order_time();
