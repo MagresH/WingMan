@@ -233,3 +233,65 @@ function createOrder() {
     })
     .catch((error) => console.error("Wystąpił błąd podczas tworzenia zamówienia:", error));
 }
+
+// Funkcja sprawdzająca, czy wszystkie pola formularza są wypełnione
+function validateForm(formId) {
+  var inputs = document.querySelectorAll("#" + formId + " input");
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].value === "" && inputs[i].hasAttribute("required")) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function updateEnterButtonState(formId, buttonId) {
+  var enterButton = document.getElementById(buttonId);
+  enterButton.disabled = !validateForm(formId);
+}
+
+// Funkcja sprawdzająca stan formularza przy każdej zmianie wartości pola
+document.getElementById("senderForm").addEventListener("input", function () {
+  updateEnterButtonState("senderForm", "enter1");
+});
+document.getElementById("receiverForm").addEventListener("input", function () {
+  updateEnterButtonState("receiverForm", "enter2");
+});
+document.getElementById("packageForm1").addEventListener("input", function () {
+  updateEnterButtonState("packageForm1", "enter3");
+  updateEnterButtonState("packageForm", "enter3");
+});
+
+// Obsługa kliknięcia przycisku "Dalej"
+document.getElementById("enter1").addEventListener("click", function () {
+  var senderFormValid = validateForm("senderForm");
+  if (senderFormValid) {
+    // Przejdź do kolejnego slajdu (jeśli formularz jest poprawnie wypełniony)
+    $("#myCarousel").carousel("next");
+  }
+});
+
+document.getElementById("enter2").addEventListener("click", function () {
+  var receiverFormValid = validateForm("receiverForm");
+  if (receiverFormValid) {
+    // Przejdź do kolejnego slajdu (jeśli formularz jest poprawnie wypełniony)
+    $("#myCarousel").carousel("next");
+  }
+});
+
+document.getElementById("enter3").addEventListener("click", function () {
+  var packageForm1Valid = validateForm("packageForm1");
+  var packageFormValid = validateForm("packageForm");
+  if (packageForm1Valid && packageFormValid) {
+    // Przejdź do kolejnego slajdu (jeśli formularz jest poprawnie wypełniony)
+    $("#myCarousel").carousel("next");
+  }
+});
+
+// Wywołanie funkcji validateForm() na starcie, aby ustawić stan przycisków "Dalej"
+document.addEventListener("DOMContentLoaded", function () {
+  updateEnterButtonState("senderForm", "enter1");
+  updateEnterButtonState("receiverForm", "enter2");
+  updateEnterButtonState("packageForm1", "enter3");
+  updateEnterButtonState("packageForm", "enter3");
+});
