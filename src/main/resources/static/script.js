@@ -168,3 +168,68 @@ function saveAndDisplayData() {
     isFragile +
     "</p>";
 }
+
+function createOrder() {
+  const sender = {
+    firstName: document.getElementById("senderFirstName").value,
+    lastName: document.getElementById("senderLastName").value,
+    companyName: document.getElementById("senderCompanyName").value,
+    email: document.getElementById("senderEmail").value,
+    phoneNumber: document.getElementById("senderPhoneNumber").value,
+    firstAddressLine: document.getElementById("senderFirstAddressLine").value,
+    secondAddressLine: document.getElementById("senderSecondAddressLine").value,
+    zipCode: document.getElementById("senderZipCode").value,
+    city: document.getElementById("senderCity").value,
+    state: document.getElementById("senderState").value,
+    country: document.getElementById("senderCountry").value,
+    longitude: document.getElementById("senderLongitude").value,
+    latitude: document.getElementById("senderLatitude").value,
+  };
+
+  const receiver = {
+    firstName: document.getElementById("receiverFirstName").value,
+    lastName: document.getElementById("receiverLastName").value,
+    companyName: document.getElementById("receiverCompanyName").value,
+    email: document.getElementById("receiverEmail").value,
+    phoneNumber: document.getElementById("receiverPhoneNumber").value,
+    firstAddressLine: document.getElementById("receiverFirstAddressLine").value,
+    secondAddressLine: document.getElementById("receiverSecondAddressLine").value,
+    zipCode: document.getElementById("receiverZipCode").value,
+    city: document.getElementById("receiverCity").value,
+    state: document.getElementById("receiverState").value,
+    country: document.getElementById("receiverCountry").value,
+    longitude: document.getElementById("receiverLongitude").value,
+    latitude: document.getElementById("receiverLatitude").value,
+  };
+
+  const _package = {
+    height: document.getElementById("height").value,
+    width: document.getElementById("width").value,
+    length: document.getElementById("length").value,
+    weight: document.getElementById("weight").value,
+    typeOfGoods: document.getElementById("type_of_goods").value,
+    isFragile: document.getElementById("is_fragile").checked,
+  };
+  const _order = {
+    sender,
+    receiver,
+    _package,
+  };
+  fetch("http://localhost:8080/api/orders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(_order),
+  })
+    .then((response) => response.json())
+    .then((createdOrder) => {
+      console.log("Nowe zamówienie zostało utworzone:");
+      console.log(createdOrder);
+      document.getElementById("senderForm").reset(); // Resetowanie formularza nadawcy
+      document.getElementById("receiverForm").reset(); // Resetowanie formularza odbiorcy
+      document.getElementById("packageForm").reset(); // Resetowanie formularza paczki
+      document.getElementById("packageForm1").reset(); // Resetowanie formularza paczki
+    })
+    .catch((error) => console.error("Wystąpił błąd podczas tworzenia zamówienia:", error));
+}
