@@ -20,9 +20,6 @@ public class Delivery {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "delivery_date")
-    private LocalDateTime deliveryDateTime;
-
     @Column(name = "delivery_hours")
     private Integer deliveryHours;
 

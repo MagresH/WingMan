@@ -31,7 +31,6 @@ public class Drone {
     private Integer speed;
 
     @Column(name = "payload_capacity")
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Float payloadCapacity;
 
     @Column(name = "latitude")

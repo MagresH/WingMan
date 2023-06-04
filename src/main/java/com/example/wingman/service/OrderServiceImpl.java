@@ -10,6 +10,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
@@ -64,4 +66,7 @@ public class OrderServiceImpl implements OrderService {
         return true;
     }
 
+    public List<Order> getOrders() {
+        return orderRepository.findAll();
+    }
 }

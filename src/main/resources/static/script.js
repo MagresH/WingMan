@@ -67,106 +67,106 @@ function saveAndDisplayData() {
 
   var summary = document.getElementById("summary");
   summary.innerHTML =
-    "<h2>Nadawca</h2>" +
-    "<hr>" +
-    "<p>Imię i nazwisko nadawcy: " +
-    senderFirstName +
-    " " +
-    senderLastName +
-    "</p>" +
-    "<p>Nazwa firmy nadawcy: " +
-    senderCompanyName +
-    "</p>" +
-    "<p>Adres e-mail nadawcy: " +
-    senderEmail +
-    "</p>" +
-    "<p>Numer telefonu nadawcy: " +
-    senderPhoneNumber +
-    "</p>" +
-    "<p>Adres nadawcy: " +
-    senderFirstAddressLine +
-    ", " +
-    senderSecondAddressLine +
-    ", " +
-    senderZipCode +
-    " " +
-    senderCity +
-    "</p>" +
-    "<p>Województwo nadawcy: " +
-    senderState +
-    "</p>" +
-    "<p>Kraj nadawcy: " +
-    senderCountry +
-    "</p>" +
-    "<p>Długość geograficzna nadawcy: " +
-    senderLongitude +
-    "</p>" +
-    "<p>Szerokość geograficzna nadawcy: " +
-    senderLatitude +
-    "</p>";
+      "<h2>Nadawca</h2>" +
+      "<hr>" +
+      "<p>Imię i nazwisko nadawcy: " +
+      senderFirstName +
+      " " +
+      senderLastName +
+      "</p>" +
+      "<p>Nazwa firmy nadawcy: " +
+      senderCompanyName +
+      "</p>" +
+      "<p>Adres e-mail nadawcy: " +
+      senderEmail +
+      "</p>" +
+      "<p>Numer telefonu nadawcy: " +
+      senderPhoneNumber +
+      "</p>" +
+      "<p>Adres nadawcy: " +
+      senderFirstAddressLine +
+      ", " +
+      senderSecondAddressLine +
+      ", " +
+      senderZipCode +
+      " " +
+      senderCity +
+      "</p>" +
+      "<p>Województwo nadawcy: " +
+      senderState +
+      "</p>" +
+      "<p>Kraj nadawcy: " +
+      senderCountry +
+      "</p>" +
+      "<p>Długość geograficzna nadawcy: " +
+      senderLongitude +
+      "</p>" +
+      "<p>Szerokość geograficzna nadawcy: " +
+      senderLatitude +
+      "</p>";
 
   var summary = document.getElementById("summary2");
   summary.innerHTML =
-    "<h2>Odbiora</h2>" +
-    "<hr>" +
-    "<p>Imię i nazwisko odbiorcy: " +
-    receiverFirstName +
-    " " +
-    receiverLastName +
-    "</p>" +
-    "<p>Nazwa firmy odbiorcy: " +
-    receiverCompanyName +
-    "</p>" +
-    "<p>Adres e-mail odbiorcy: " +
-    receiverEmail +
-    "</p>" +
-    "<p>Numer telefonu odbiorcy: " +
-    receiverPhoneNumber +
-    "</p>" +
-    "<p>Adres odbiorcy: " +
-    receiverFirstAddressLine +
-    ", " +
-    receiverSecondAddressLine +
-    ", " +
-    receiverZipCode +
-    " " +
-    receiverCity +
-    "</p>" +
-    "<p>Województwo odbiorcy: " +
-    receiverState +
-    "</p>" +
-    "<p>Kraj odbiorcy: " +
-    receiverCountry +
-    "</p>" +
-    "<p>Długość geograficzna odbiorcy: " +
-    receiverLongitude +
-    "</p>" +
-    "<p>Szerokość geograficzna odbiorcy: " +
-    receiverLatitude +
-    "</p>";
+      "<h2>Odbiora</h2>" +
+      "<hr>" +
+      "<p>Imię i nazwisko odbiorcy: " +
+      receiverFirstName +
+      " " +
+      receiverLastName +
+      "</p>" +
+      "<p>Nazwa firmy odbiorcy: " +
+      receiverCompanyName +
+      "</p>" +
+      "<p>Adres e-mail odbiorcy: " +
+      receiverEmail +
+      "</p>" +
+      "<p>Numer telefonu odbiorcy: " +
+      receiverPhoneNumber +
+      "</p>" +
+      "<p>Adres odbiorcy: " +
+      receiverFirstAddressLine +
+      ", " +
+      receiverSecondAddressLine +
+      ", " +
+      receiverZipCode +
+      " " +
+      receiverCity +
+      "</p>" +
+      "<p>Województwo odbiorcy: " +
+      receiverState +
+      "</p>" +
+      "<p>Kraj odbiorcy: " +
+      receiverCountry +
+      "</p>" +
+      "<p>Długość geograficzna odbiorcy: " +
+      receiverLongitude +
+      "</p>" +
+      "<p>Szerokość geograficzna odbiorcy: " +
+      receiverLatitude +
+      "</p>";
 
   var summary = document.getElementById("summary3");
   summary.innerHTML =
-    "<h2>Paczka</h2>" +
-    "<hr>" +
-    "<p>Długość paczki: " +
-    length +
-    " cm</p>" +
-    "<p>Szerokość paczki: " +
-    width +
-    " cm</p>" +
-    "<p>Wysokość paczki: " +
-    height +
-    " cm</p>" +
-    "<p>Waga paczki: " +
-    weight +
-    " kg</p>" +
-    "<p>Zawartość paczki: " +
-    typeOfGoods +
-    "</p>" +
-    "<p>Czy paczka jest krucha: " +
-    isFragile +
-    "</p>";
+      "<h2>Paczka</h2>" +
+      "<hr>" +
+      "<p>Długość paczki: " +
+      length +
+      " cm</p>" +
+      "<p>Szerokość paczki: " +
+      width +
+      " cm</p>" +
+      "<p>Wysokość paczki: " +
+      height +
+      " cm</p>" +
+      "<p>Waga paczki: " +
+      weight +
+      " kg</p>" +
+      "<p>Zawartość paczki: " +
+      typeOfGoods +
+      "</p>" +
+      "<p>Czy paczka jest krucha: " +
+      isFragile +
+      "</p>";
 }
 
 function createOrder() {
@@ -222,16 +222,21 @@ function createOrder() {
     },
     body: JSON.stringify(_order),
   })
-    .then((response) => response.json())
-    .then((createdOrder) => {
-      console.log("Nowe zamówienie zostało utworzone:");
-      console.log(createdOrder);
-      document.getElementById("senderForm").reset(); // Resetowanie formularza nadawcy
-      document.getElementById("receiverForm").reset(); // Resetowanie formularza odbiorcy
-      document.getElementById("packageForm").reset(); // Resetowanie formularza paczki
-      document.getElementById("packageForm1").reset(); // Resetowanie formularza paczki
-    })
-    .catch((error) => console.error("Wystąpił błąd podczas tworzenia zamówienia:", error));
+      .then((response) => response.json())
+      .then((createdOrder) => {
+        confirm("Zamówienie zostało utworzone");
+        console.log("Nowe zamówienie zostało utworzone:");
+        console.log(createdOrder);
+        document.getElementById("senderForm").reset(); // Resetowanie formularza nadawcy
+        document.getElementById("receiverForm").reset(); // Resetowanie formularza odbiorcy
+        document.getElementById("packageForm").reset(); // Resetowanie formularza paczki
+        document.getElementById("packageForm1").reset(); // Resetowanie formularza paczki
+
+      })
+      .catch((error) => {
+        confirm("Wystąpił błąd podczas tworzenia zamówienia"); // i tu żeby wróciło do formularzy
+        console.error("Wystąpił błąd podczas tworzenia zamówienia:", error)
+      });
 }
 
 // Funkcja sprawdzająca, czy wszystkie pola formularza są wypełnione
@@ -268,6 +273,8 @@ document.getElementById("enter1").addEventListener("click", function () {
   if (senderFormValid) {
     // Przejdź do kolejnego slajdu (jeśli formularz jest poprawnie wypełniony)
     $("#myCarousel").carousel("next");
+  } else {
+    alert("Wypełnij wszystkie pola formularza");
   }
 });
 
@@ -276,6 +283,9 @@ document.getElementById("enter2").addEventListener("click", function () {
   if (receiverFormValid) {
     // Przejdź do kolejnego slajdu (jeśli formularz jest poprawnie wypełniony)
     $("#myCarousel").carousel("next");
+  }
+  else {
+    alert("Wypełnij wszystkie pola formularza");
   }
 });
 
@@ -286,6 +296,13 @@ document.getElementById("enter3").addEventListener("click", function () {
     // Przejdź do kolejnego slajdu (jeśli formularz jest poprawnie wypełniony)
     $("#myCarousel").carousel("next");
   }
+  else {
+    alert("Wypełnij wszystkie pola formularza");
+  }
+});
+
+document.getElementById("enter4").addEventListener("click", function () {
+  $("#myCarousel").carousel("next");
 });
 
 // Wywołanie funkcji validateForm() na starcie, aby ustawić stan przycisków "Dalej"
