@@ -1,6 +1,7 @@
 package com.example.wingman.model.client;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 
 @Data

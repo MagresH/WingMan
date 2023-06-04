@@ -1,8 +1,7 @@
 package com.example.wingman;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.core.io.ClassPathResource;
@@ -13,15 +12,14 @@ import org.springframework.util.FileCopyUtils;
 import java.io.InputStreamReader;
 
 @Component
+@RequiredArgsConstructor
 public class TriggerLoader implements ApplicationListener<ApplicationReadyEvent> {
 
-    private static final int TRIGGERS = 5;
+    private static final int TRIGGERS = 4;
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
-    @Autowired
-    private TransactionTemplate transactionTemplate;
+    private final TransactionTemplate transactionTemplate;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {

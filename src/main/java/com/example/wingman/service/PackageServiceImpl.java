@@ -1,8 +1,8 @@
 package com.example.wingman.service;
 
+import com.example.wingman.model.Package;
 import com.example.wingman.repository.PackageRepository;
 import lombok.RequiredArgsConstructor;
-import com.example.wingman.model.Package;
 import org.springframework.stereotype.Service;
 
 @Service

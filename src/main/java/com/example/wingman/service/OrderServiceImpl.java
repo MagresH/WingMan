@@ -2,10 +2,8 @@ package com.example.wingman.service;
 
 import com.example.wingman.model.Delivery;
 import com.example.wingman.model.Order;
-import com.example.wingman.model.Package;
 import com.example.wingman.repository.OrderRepository;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PostPersist;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

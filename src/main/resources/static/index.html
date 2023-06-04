@@ -1,259 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WINGMAN</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <style></style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WINGMAN</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
 </head>
 <body>
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" style="background-color: #ffffff00">
-  <div class="carousel-inner">
-    <!-- Slajd tytułowy -->
-    <div class="carousel-item slajd1 active">
-      <div class="jumbotron text-center">
-        <h1 class="display-4">WINGMAN</h1>
-        <p class="lead">Transport kurierski dronami</p>
-        <a class="btn btn-primary btn-lg toggleCarousel" href="#" role="button" data-target="#myCarousel" data-slide-to="1">Nadaj paczkę</a>
-      </div>
-    </div>
-    <!-- Drugi slajd formularz nadawcy -->
-    <div class="carousel-item slajd2">
-      <div class="jumbotron text-center">
-        <div class="container">
-          <h2>Formularz danych nadawcy</h2>
-          <hr class="cien" />
-          <div class="row">
-            <div class="col-md-6">
-              <form id="senderForm">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="senderFirstName" placeholder="Imię" required />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="senderLastName" placeholder="Nazwisko" required />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="senderCompanyName" placeholder="Nazwa firmy (pole niewymagane)" />
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" id="senderEmail" placeholder="Adres e-mail" required />
-                </div>
-                <div class="form-group">
-                  <input type="tel" class="form-control" id="senderPhoneNumber" placeholder="Numer telefonu" required />
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="senderFirstAddressLine" placeholder="Adres - linia 1" required />
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="senderSecondAddressLine" placeholder="Adres - linia 2 (pole niewymagane)" />
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="senderZipCode" placeholder="Kod pocztowy" required />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="senderCity" placeholder="Miasto" required />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="senderState" placeholder="Województwo" required />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="senderCountry" placeholder="Kraj" required />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="senderLongitude" placeholder="Długość geograficzna" readonly required />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="senderLatitude" placeholder="Szerokość geograficzna" readonly required />
-                  </div>
-                </div>
-              </form>
+    <div class="carousel-inner">
+        <!-- Slajd tytułowy -->
+        <div class="carousel-item slajd1 active">
+            <div class="jumbotron text-center">
+                <h1 class="display-4">WINGMAN</h1>
+                <p class="lead">Transport kurierski dronami</p>
+                <a class="btn btn-primary btn-lg toggleCarousel" href="#" role="button" data-target="#myCarousel" data-slide-to="1">Nadaj paczkę</a>
             </div>
-            <div class="col-md-6">
-              <div id="map"></div>
-            </div>
-          </div>
-          <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="prev">Cofnij</a>
-          <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="next" onclick="saveAndDisplayData()" id="enter1">Dalej</a>
         </div>
-      </div>
-    </div>
+        <!-- Drugi slajd formularz nadawcy -->
+        <div class="carousel-item slajd2">
+            <div class="jumbotron text-center">
+                <div class="container">
+                    <h2>Formularz danych nadawcy</h2>
+                    <hr class="cien" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form id="senderForm">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="senderFirstName" placeholder="Imię" required />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="senderLastName" placeholder="Nazwisko" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="senderCompanyName" placeholder="Nazwa firmy (pole niewymagane)" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="senderEmail" placeholder="Adres e-mail" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" id="senderPhoneNumber" placeholder="Numer telefonu" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="senderFirstAddressLine" placeholder="Adres - linia 1" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="senderSecondAddressLine" placeholder="Adres - linia 2 (pole niewymagane)" />
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="senderZipCode" placeholder="Kod pocztowy" required />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="senderCity" placeholder="Miasto" required />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="senderState" placeholder="Województwo" required />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="senderCountry" placeholder="Kraj" required />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="senderLongitude" placeholder="Długość geograficzna" readonly required />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="senderLatitude" placeholder="Szerokość geograficzna" readonly required />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="prev">Cofnij</a>
+                    <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="next" onclick="saveAndDisplayData()" id="enter1">Dalej</a>
+                </div>
+            </div>
+        </div>
 
-    <!-- Slajd trzeci Formularz odbiorcy  -->
-    <div class="carousel-item slajd3">
-      <div class="jumbotron text-center">
-        <div class="container">
-          <h2>Formularz danych odbiorcy</h2>
-          <hr />
-          <div class="row">
-            <div class="col-md-6">
-              <form id="receiverForm">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="receiverFirstName" placeholder="Imię" required />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="receiverLastName" placeholder="Nazwisko" required />
-                  </div>
+        <!-- Slajd trzeci Formularz odbiorcy  -->
+        <div class="carousel-item slajd3">
+            <div class="jumbotron text-center">
+                <div class="container">
+                    <h2>Formularz danych odbiorcy</h2>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form id="receiverForm">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="receiverFirstName" placeholder="Imię" required />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="receiverLastName" placeholder="Nazwisko" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="receiverCompanyName" placeholder="Nazwa firmy" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="receiverEmail" placeholder="Adres e-mail" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" id="receiverPhoneNumber" placeholder="Numer telefonu" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="receiverFirstAddressLine" placeholder="Adres - linia 1" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="receiverSecondAddressLine" placeholder="Adres - linia 2" />
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="receiverZipCode" placeholder="Kod pocztowy" required />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="receiverCity" placeholder="Miasto" required />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="receiverState" placeholder="Województwo" required />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="receiverCountry" placeholder="Kraj" required />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="receiverLongitude" placeholder="Długość geograficzna" readonly required />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="receiverLatitude" placeholder="Szerokość geograficzna" readonly required />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="map2"></div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="prev">Cofnij</a>
+                    <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="next" onclick="saveAndDisplayData()" id="enter2">Dalej</a>
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="receiverCompanyName" placeholder="Nazwa firmy" />
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" id="receiverEmail" placeholder="Adres e-mail" required />
-                </div>
-                <div class="form-group">
-                  <input type="tel" class="form-control" id="receiverPhoneNumber" placeholder="Numer telefonu" required />
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="receiverFirstAddressLine" placeholder="Adres - linia 1" required />
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="receiverSecondAddressLine" placeholder="Adres - linia 2" />
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="receiverZipCode" placeholder="Kod pocztowy" required />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="receiverCity" placeholder="Miasto" required />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="receiverState" placeholder="Województwo" required />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="receiverCountry" placeholder="Kraj" required />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="receiverLongitude" placeholder="Długość geograficzna" readonly required />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="receiverLatitude" placeholder="Szerokość geograficzna" readonly required />
-                  </div>
-                </div>
-              </form>
             </div>
-            <div class="col-md-6">
-              <div id="map2"></div>
-            </div>
-          </div>
-          <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="prev">Cofnij</a>
-          <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="next" onclick="saveAndDisplayData()" id="enter2">Dalej</a>
         </div>
-      </div>
-    </div>
 
-    <!-- Slajd czwarty Formularz paczki -->
-    <div class="carousel-item slajd4">
-      <div class="jumbotron text-center">
-        <div class="container">
-          <h2>Formularz danych paczki - Wymiary</h2>
-          <hr />
-          <div class="row">
-            <div class="col-md-6">
-              <!-- Lewa strona kontenera -->
-              <form id="packageForm1">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="length" placeholder="Długość paczki (w cm)" required />
+        <!-- Slajd czwarty Formularz paczki -->
+        <div class="carousel-item slajd4">
+            <div class="jumbotron text-center">
+                <div class="container">
+                    <h2>Formularz danych paczki - Wymiary</h2>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Lewa strona kontenera -->
+                            <form id="packageForm1">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="length" placeholder="Długość paczki (w cm)" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="width" placeholder="Szerokość paczki (w cm)" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="height" placeholder="Wysokość paczki (w cm)" required />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Prawa strona kontenera -->
+                            <form id="packageForm">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="weight" placeholder="Waga paczki (w kg)" required />
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="type_of_goods" rows="3" placeholder="Zawartość paczki" required></textarea>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="is_fragile" />
+                                    <label class="form-check-label" for="is_fragile">Czy oznaczyć jako "ostrożnie"?</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div><img src="resources/dron2.png" alt="" /></div>
+                    <div class="przyciski4">
+                        <a class="btn btn-primary btn-lg toggleCarousel2" role="button" data-target="#myCarousel" data-slide="prev">Cofnij</a>
+                        <a class="btn btn-primary btn-lg toggleCarousel2" role="button" data-target="#myCarousel" data-slide="next" onclick="saveAndDisplayData()" id="enter3">Dalej</a>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="width" placeholder="Szerokość paczki (w cm)" required />
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="height" placeholder="Wysokość paczki (w cm)" required />
-                </div>
-              </form>
             </div>
-            <div class="col-md-6">
-              <!-- Prawa strona kontenera -->
-              <form id="packageForm">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="weight" placeholder="Waga paczki (w kg)" required />
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" id="type_of_goods" rows="3" placeholder="Zawartość paczki" required></textarea>
-                </div>
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="is_fragile" />
-                  <label class="form-check-label" for="is_fragile">Czy oznaczyć jako "ostrożnie"?</label>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div><img src="resources/dron2.png" alt="" /></div>
-          <div class="przyciski4">
-            <a class="btn btn-primary btn-lg toggleCarousel2" role="button" data-target="#myCarousel" data-slide="prev">Cofnij</a>
-            <a class="btn btn-primary btn-lg toggleCarousel2" role="button" data-target="#myCarousel" data-slide="next" onclick="saveAndDisplayData()" id="enter3">Dalej</a>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Slajd piąty Podsumowanie  -->
-    <div class="carousel-item slajd5">
-      <div class="jumbotron text-center">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4 tekst">
-              <!-- Lewa strona kontenera -->
-              <p id="summary"></p>
-              <div class="vl"></div>
+        <!-- Slajd piąty Podsumowanie  -->
+        <div class="carousel-item slajd5">
+            <div class="jumbotron text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 tekst">
+                            <!-- Lewa strona kontenera -->
+                            <p id="summary"></p>
+                            <div class="vl"></div>
+                        </div>
+                        <div class="col-md-4 tekst">
+                            <!-- Prawa strona kontenera -->
+                            <p id="summary2"></p>
+                            <div class="vl"></div>
+                        </div>
+                        <div class="col-md-4 tekst">
+                            <p id="summary3"></p>
+                        </div>
+                    </div>
+                    <div class="przyciski5">
+                        <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="prev">Cofnij</a>
+                        <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="next" id="enter5" onclick="createOrder()"
+                        >Zamów dostawę</a
+                        >
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 tekst">
-              <!-- Prawa strona kontenera -->
-              <p id="summary2"></p>
-              <div class="vl"></div>
-            </div>
-            <div class="col-md-4 tekst">
-              <p id="summary3"></p>
-            </div>
-          </div>
-          <div class="przyciski5">
-            <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="prev">Cofnij</a>
-            <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="next" onclick="createOrder()">Zamów dostawę</a>
-          </div>
         </div>
-      </div>
+        <!-- Slajd potwierdzenie zamówienia -->
+        <div class="carousel-item slajd6">
+            <div class="jumbotron text-center">
+                <div class="container"><h1 class="display-4">Udało się!</h1>
+                    <div id="orderContainer" class="row"></div>
+                </div>
+            </div>
+        </div>
     </div>
-      <!-- Slajd potwierdzenie zamówienia -->
-      <div class="carousel-item slajd6">
-        <div class="jumbotron text-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4 tekst">
-                <!-- Lewa strona kontenera -->
-                <p id="summary1"></p>
-                <div class="vl"></div>
-              </div>
-              <div class="col-md-4 tekst">
-                <!-- Prawa strona kontenera -->
-                <p id="summary22"></p>
-                <div class="vl"></div>
-              </div>
-              <div class="col-md-4 tekst">
-                <p id="summary33"></p>
-              </div>
-            </div>
-            <div class="przyciski5">
-              <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="prev">Cofnij</a>
-              <a class="btn btn-primary btn-lg toggleCarousel2" style="margin-top: 15px" role="button" data-target="#myCarousel" data-slide="next" id="enter6" onclick="createOrder()">Za</a>
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
